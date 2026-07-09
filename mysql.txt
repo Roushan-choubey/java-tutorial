@@ -212,3 +212,12 @@ mysql> select * from a where age >23;
 | Sanyam  |   55 |
 +---------+------+
 3 rows in set (0.00 sec)
+mysql> select * from  a where age =23 or name ='rous';
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
++---------+------+
+1 row in set (0.04 sec)
+
+mysql>
