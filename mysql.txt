@@ -252,3 +252,47 @@ mysql> select * from a where age between 24 and 45;
 2 rows in set (0.03 sec)
 
 mysql>
+mysql> select * from a where age not between 24 and 45;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Sanyam  |   55 |
++---------+------+
+2 rows in set (0.03 sec)
+
+mysql> ceate table b(name varchar(22) , age int );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ceate table b(name varchar(22) , age int )' at line 1
+mysql> create table b(name varchar(22) ,age int );
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> insert into b values('oggy',23),('Roushan',45),('abc',24),('xyz',55);
+Query OK, 4 rows affected (0.04 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from b;
++---------+------+
+| name    | age  |
++---------+------+
+| oggy    |   23 |
+| Roushan |   45 |
+| abc     |   24 |
+| xyz     |   55 |
++---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from a union select * from b;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
+| oggy    |   23 |
+| abc     |   24 |
+| xyz     |   55 |
++---------+------+
+7 rows in set (0.02 sec)
+
+mysql>
