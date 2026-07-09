@@ -296,3 +296,63 @@ mysql> select * from a union select * from b;
 7 rows in set (0.02 sec)
 
 mysql>
+
+mysql> select * from a union all select * from b;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
+| oggy    |   23 |
+| Roushan |   45 |
+| abc     |   24 |
+| xyz     |   55 |
++---------+------+
+8 rows in set (0.01 sec)
+
+mysql> select * from a intersect select * from b;
++---------+------+
+| name    | age  |
++---------+------+
+| Roushan |   45 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from a join b on a.age =b.age;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| Saurabh |   23 | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| Sahil   |   24 | abc     |   24 |
+| Sanyam  |   55 | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.01 sec)
+
+mysql> select * from a Roushan join b BBD on Roushan.age=BBD.age;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| Saurabh |   23 | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| Sahil   |   24 | abc     |   24 |
+| Sanyam  |   55 | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select Saurabh.name ,BBD.age  from a Roushan join b BBD on Roushan.age=BBD.age;
+ERROR 1054 (42S22): Unknown column 'Saurabh.name' in 'field list'
+mysql> select Roushan.name,BBD.age  from a Roushan join b BBD on Roushan.age=BBD.age;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.00 sec)
+
+mysql>
