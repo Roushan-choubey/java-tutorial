@@ -355,4 +355,69 @@ mysql> select Roushan.name,BBD.age  from a Roushan join b BBD on Roushan.age=BBD
 +---------+------+
 4 rows in set (0.00 sec)
 
-mysql>
+
+mysql> select deepak.name,bbd.age from a deepak join b bbd on deepak.age=bbd.age;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select deepak.name,bbd.age from a deepak join b bbd on deepak.age=bbd.age;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from a left join b on a.age=b.age;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| Saurabh |   23 | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| Sahil   |   24 | abc     |   24 |
+| Sanyam  |   55 | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.04 sec)
+
+mysql> select * from a right join b on a.age=b.age;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| Saurabh |   23 | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| Sahil   |   24 | abc     |   24 |
+| Sanyam  |   55 | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from a right join b on a.age=b.age;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| Saurabh |   23 | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| Sahil   |   24 | abc     |   24 |
+| Sanyam  |   55 | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.03 sec)
+
+mysql> select * from a right join b on a.name=b.name;
++---------+------+---------+------+
+| name    | age  | name    | age  |
++---------+------+---------+------+
+| NULL    | NULL | oggy    |   23 |
+| Roushan |   45 | Roushan |   45 |
+| NULL    | NULL | abc     |   24 |
+| NULL    | NULL | xyz     |   55 |
++---------+------+---------+------+
+4 rows in set (0.03 sec)
