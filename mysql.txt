@@ -1,0 +1,214 @@
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| amitdb             |
+| bbd_uni            |
+| demo               |
+| information_schema |
+| jack               |
+| mysql              |
+| onlineinventory    |
+| performance_schema |
+| roushandb          |
+| school             |
+| sys                |
++--------------------+
+11 rows in set (0.02 sec)
+
+mysql> use onlineinventory;
+Database changed
+mysql> select * from login;
++-----------+----------+
+| userID    | password |
++-----------+----------+
+| hjhfde    |    45678 |
+| hjhfde    |    45678 |
+| njhcienn  | 12345678 |
+| bjbguhbhj |  1234578 |
+| bjbguhbhj |  1234578 |
+| hbgyugg   |    65595 |
+| roushan   |    12345 |
+| roushan   |    12345 |
++-----------+----------+
+8 rows in set (0.00 sec)
+
+mysql> select * from inventorymanager;
++---------+-----------+
+| userid  | password  |
++---------+-----------+
+| hytyrr  | 789456123 |
+| roushan |     12345 |
++---------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from salesmanager;
++---------+----------+
+| userid  | password |
++---------+----------+
+| hgygy   |    58781 |
+| roushan |    12345 |
++---------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from salesperson;
++-------------+----------+
+| userid      | password |
++-------------+----------+
+| ihjfeijewfn | 12345678 |
+| roushan     |    12345 |
++-------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> create database colllage;
+Query OK, 1 row affected (0.22 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amitdb             |
+| bbd_uni            |
+| colllage           |
+| demo               |
+| information_schema |
+| jack               |
+| mysql              |
+| onlineinventory    |
+| performance_schema |
+| roushandb          |
+| school             |
+| sys                |
++--------------------+
+12 rows in set (0.11 sec)
+
+mysql> create database collage;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amitdb             |
+| bbd_uni            |
+| collage            |
+| colllage           |
+| demo               |
+| information_schema |
+| jack               |
+| mysql              |
+| onlineinventory    |
+| performance_schema |
+| roushandb          |
+| school             |
+| sys                |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> delete database amitdb;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database amitdb' at line 1
+mysql>
+mysql> drop colllage;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'colllage' at line 1
+mysql> drop database colllage;
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amitdb             |
+| bbd_uni            |
+| collage            |
+| demo               |
+| information_schema |
+| jack               |
+| mysql              |
+| onlineinventory    |
+| performance_schema |
+| roushandb          |
+| school             |
+| sys                |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> create table a(name varchar(20),age int );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> use collage;
+Database changed
+mysql> create table a(name varchar(20),age int );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> use Roushan;
+ERROR 1049 (42000): Unknown database 'roushan'
+mysql> insert into a values('Saurabh',23),('Roushan',45),('Sahil',24),('Sanyam',55)
+    -> ;
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from a;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.03 sec)
+
+mysql> select * from where name ='Roushan'
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where name ='Roushan'' at line 1
+mysql> select * from a where name ='Roushan';
++---------+------+
+| name    | age  |
++---------+------+
+| Roushan |   45 |
++---------+------+
+1 row in set (0.04 sec)
+
+mysql> select name , age ,age+2 as addition,age-2 as subtraction,age*2 as multiplication,age/2 as division from a;
++---------+------+----------+-------------+----------------+----------+
+| name    | age  | addition | subtraction | multiplication | division |
++---------+------+----------+-------------+----------------+----------+
+| Saurabh |   23 |       25 |          21 |             46 |  11.5000 |
+| Roushan |   45 |       47 |          43 |             90 |  22.5000 |
+| Sahil   |   24 |       26 |          22 |             48 |  12.0000 |
+| Sanyam  |   55 |       57 |          53 |            110 |  27.5000 |
++---------+------+----------+-------------+----------------+----------+
+4 rows in set (0.04 sec)
+
+mysql> select * from a where age >=22;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.03 sec)
+
+mysql> select * from a where age >22;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from a where age >23;
++---------+------+
+| name    | age  |
++---------+------+
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+3 rows in set (0.00 sec)
