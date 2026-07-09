@@ -220,4 +220,35 @@ mysql> select * from  a where age =23 or name ='rous';
 +---------+------+
 1 row in set (0.04 sec)
 
+
+mysql> select * from  a where not age =23;
++---------+------+
+| name    | age  |
++---------+------+
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from a;
++---------+------+
+| name    | age  |
++---------+------+
+| Saurabh |   23 |
+| Roushan |   45 |
+| Sahil   |   24 |
+| Sanyam  |   55 |
++---------+------+
+4 rows in set (0.01 sec)
+
+mysql> select * from a where age between 24 and 45;
++---------+------+
+| name    | age  |
++---------+------+
+| Roushan |   45 |
+| Sahil   |   24 |
++---------+------+
+2 rows in set (0.03 sec)
+
 mysql>
